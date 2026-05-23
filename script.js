@@ -1,7 +1,7 @@
-// Basit bir oyun listesi (Buraya kendi oyunlarını ekleyeceksin)
 const games = [
-    { name: "Oyun 1", url: "oyun1.swf" },
-    { name: "Oyun 2", url: "oyun2.swf" }
+    { name: "Caillou balon toplama", file: "kayu-balon-toplama.swf" },
+    { name: "Tank Oyunu", file: "tank-oyunu.swf" }
+    // Yeni oyun eklemek istersen buraya virgül koyup aynısından ekle
 ];
 
 const container = document.getElementById('game-grid');
@@ -11,7 +11,17 @@ games.forEach(game => {
     div.className = 'game-card';
     div.innerHTML = `
         <h3>${game.name}</h3>
-        <button onclick="alert('Bu butona basınca ${game.url} dosyası oynatılacak')">Oyna</button>
+        <button onclick="playGame('${game.file}')">Oyna</button>
+        <a href="${game.file}" download>İndir</a>
     `;
     container.appendChild(div);
 });
+
+function playGame(file) {
+    container.innerHTML = `
+        <ruffle-player>
+            <param name="movie" value="${file}">
+        </ruffle-player>
+        <br><button onclick="location.reload()">Geri Dön</button>
+    `;
+}
