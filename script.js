@@ -1,5 +1,5 @@
 const games = [
-    { name: "Caillou balon toplama", file: "kayu-balon-toplama.swf" },
+    { name: "kayu-balon-toplama", file: "kayu-balon-toplama.swf" },
     { name: "Tank Oyunu", file: "tank-oyunu.swf" }
     // Yeni oyun eklemek istersen buraya virgül koyup aynısından ekle
 ];
